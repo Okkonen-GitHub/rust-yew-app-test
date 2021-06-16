@@ -62,8 +62,8 @@ impl Component for TodoApp {
             Msg::MakeReq => {
                 self.todos = None;
                 let req = Request::get("https://jsonplaceholder.typicode.com/todos")
-                .body(Nothing)
-                .expect("Can make req to jsonplaceholder");
+                    .body(Nothing)
+                    .expect("Can make req to jsonplaceholder");
 
                 let cb = self.link.callback(
                     |response: Response<Json<Result<Vec<Todo>, anyhow::Error>>>| {

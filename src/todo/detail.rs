@@ -20,7 +20,7 @@ impl Detail {
   fn render_detail(&self, todo: &Option<Todo>) -> Html {
     match todo {
       Some(t) => {
-        let _completed = if t.completed {
+        let completed = if t.completed {
           Some("completed")
         } else {
           Some("not-completed")
@@ -30,7 +30,7 @@ impl Detail {
             <h1>
               {&t.title}{" ("}<span class=classes!("id")></span>{")"}
             </h1>
-            <div class=classes!("completed")>
+            <div class=classes!(completed)>
               { if t.completed { "done" } else { "not done" } }
             </div>
           </div>
