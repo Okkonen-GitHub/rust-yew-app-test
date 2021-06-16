@@ -21,16 +21,6 @@ struct TodoApp {
     fetch_task: Option<FetchTask>,
 }
 
-
-#[derive(Deserialize, Clone, PartialEq, Debug)]
-#[serde(rename_all = "camelCase")]
-pub struct Todo {
-    pub user_id: u64,
-    pub id: u64,
-    pub title: String,
-    pub completed: bool,
-}
-
 enum Msg {
     MakeReq,
     Resp(Result<Vec<Todo>, anyhow::Error>),
@@ -42,6 +32,15 @@ pub enum AppRoute {
     Detail(i32),
     #[to = "/"]
     Home,
+}
+
+#[derive(Deserialize, Clone, PartialEq, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct Todo {
+    pub user_id: u64,
+    pub id: u64,
+    pub title: String,
+    pub completed: bool,
 }
 
 impl Component for TodoApp {
@@ -93,7 +92,7 @@ impl Component for TodoApp {
     fn view(&self) -> Html {
         let todos = self.todos.clone();
         let cb = self.link.callback(|_| Msg::MakeReq);
-        ConsoleService::info(&format!("Render TodoApp: {:?}", todos));
+        ConsoleService::info(&format!("render TodoApp: {:?}", todos));
 
         html! {
             <div class=classes!("todo")>
