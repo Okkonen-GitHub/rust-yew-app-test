@@ -13,5 +13,5 @@ It's very simple. Made by following a tutorial, check it out though
 
 ## Building and running an optimized version 
 - Use `trunk build --release` to build an optimized version
-- Then use `python -m http.server 8080 --directory dist/` and open [localhost:8080](localhost:8080)
+- Then use `python -m http.server 8080 --directory dist/` and open `localhost:8080`
 - You could build the in other ways too check out some [docs](https://yew.rs/getting-started/project-setup#comparison)
